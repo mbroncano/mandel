@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7217AD61F5B4CED0001ADF8 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD51F5B4CED0001ADF8 /* Complex.swift */; };
+		C7217AD81F5BAC010001ADF8 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD71F5BAC010001ADF8 /* Pixel.swift */; };
+		C7217ADA1F5C94910001ADF8 /* Interpol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD91F5C94910001ADF8 /* Interpol.swift */; };
 		C7E6DA9C1F5B46A800A52433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6DA9B1F5B46A800A52433 /* AppDelegate.swift */; };
 		C7E6DA9E1F5B46A800A52433 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6DA9D1F5B46A800A52433 /* ViewController.swift */; };
 		C7E6DAA11F5B46A800A52433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E6DA9F1F5B46A800A52433 /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7217AD51F5B4CED0001ADF8 /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
+		C7217AD71F5BAC010001ADF8 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
+		C7217AD91F5C94910001ADF8 /* Interpol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpol.swift; sourceTree = "<group>"; };
 		C7E6DA981F5B46A800A52433 /* Mandelbrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mandelbrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E6DA9B1F5B46A800A52433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7E6DA9D1F5B46A800A52433 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				C7E6DAA21F5B46A800A52433 /* Assets.xcassets */,
 				C7E6DAA41F5B46A800A52433 /* LaunchScreen.storyboard */,
 				C7E6DAA71F5B46A800A52433 /* Info.plist */,
+				C7217AD51F5B4CED0001ADF8 /* Complex.swift */,
+				C7217AD71F5BAC010001ADF8 /* Pixel.swift */,
+				C7217AD91F5C94910001ADF8 /* Interpol.swift */,
 			);
 			path = Mandelbrot;
 			sourceTree = "<group>";
@@ -197,7 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7217ADA1F5C94910001ADF8 /* Interpol.swift in Sources */,
+				C7217AD81F5BAC010001ADF8 /* Pixel.swift in Sources */,
 				C7E6DA9E1F5B46A800A52433 /* ViewController.swift in Sources */,
+				C7217AD61F5B4CED0001ADF8 /* Complex.swift in Sources */,
 				C7E6DA9C1F5B46A800A52433 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
