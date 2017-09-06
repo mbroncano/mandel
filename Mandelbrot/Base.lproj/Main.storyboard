@@ -17,31 +17,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O7j-Px-ggv">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
-                                <gestureRecognizers/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="32768" translatesAutoresizingMaskIntoConstraints="NO" id="CCJ-r1-0jy">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXn-fE-Qee" customClass="TileView" customModule="Mandelbrot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FXn-fE-Qee" secondAttribute="bottom" id="0ga-4f-vdR"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerX" secondItem="CCJ-r1-0jy" secondAttribute="centerX" id="8cx-wH-JKw"/>
+                                    <constraint firstAttribute="trailing" secondItem="FXn-fE-Qee" secondAttribute="trailing" id="Gc9-m0-9gV"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerY" secondItem="CCJ-r1-0jy" secondAttribute="centerY" id="OOZ-94-5cl"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="top" secondItem="CCJ-r1-0jy" secondAttribute="top" id="oVz-28-EBC"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="leading" secondItem="CCJ-r1-0jy" secondAttribute="leading" id="zC7-4a-PYK"/>
+                                </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="MVk-gf-rs0" appends="YES" id="X4m-h0-4ea"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jPo-X8-sBc"/>
                                 </connections>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="O7j-Px-ggv" secondAttribute="trailing" id="2ra-Sb-RYQ"/>
-                            <constraint firstItem="O7j-Px-ggv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YEZ-lc-tJO"/>
-                            <constraint firstItem="O7j-Px-ggv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fr1-or-Nam"/>
-                            <constraint firstItem="O7j-Px-ggv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wZT-Ka-GhT"/>
+                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4hO-VP-hvA"/>
+                            <constraint firstAttribute="trailing" secondItem="CCJ-r1-0jy" secondAttribute="trailing" id="H30-5u-GVW"/>
+                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wd1-6V-lSJ"/>
+                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="up1-jE-qlm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="O7j-Px-ggv" id="1oz-3q-R42"/>
+                        <outlet property="scrollView" destination="CCJ-r1-0jy" id="uA9-65-fmP"/>
+                        <outlet property="tileView" destination="FXn-fE-Qee" id="oEW-Rq-CsE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="MVk-gf-rs0"/>
             </objects>
-            <point key="canvasLocation" x="140" y="169.56521739130437"/>
+            <point key="canvasLocation" x="139.453125" y="169.53125"/>
         </scene>
     </scenes>
 </document>
