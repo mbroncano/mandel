@@ -31,24 +31,26 @@ let palette: [Pixel] = {
     }
 }()
 
+import simd
+
 func mandelbrot(min a: Complex, max b: Complex, size: CGSize, maxiter: Int) -> [Double] {
     let width = Int(size.width)
     let height = Int(size.height)
     let count = width * height
     var result = [Double](repeating: 0, count: count)
+    let escape = 256.0
 
     let inside: (Complex) -> Double = { c in
         var z = Complex()
         var iter = 0
-        while z.radiusSquare < 4, iter < maxiter {
-            z = z^2 + c
+        while z.radiusSquare < escape, iter < maxiter {
+            z = z.square + c
             iter += 1
         }
 
-        guard iter < maxiter else { return 1.0 }
-
         // smooth only when outside
-        let smooth = (Double(iter) - (log(log(z.radius) / log(Double(maxiter))) / log(2))) / Double(maxiter)
+        guard iter < maxiter else { return 1.0 }
+        let smooth = (Double(iter) - log2(log(z.radius))) / Double(maxiter)
 
         return max(0.0, min(smooth, 1.0))
     }
@@ -66,9 +68,12 @@ func mandelbrot(min a: Complex, max b: Complex, size: CGSize, maxiter: Int) -> [
 
 
 class MandelLayer: CATiledLayer {
+
+//    let queue = DispatchQueue(label: "mandel")
+//    let cache = NSCache<CacheKey<CGRect>, CGImage>()
+
     override func draw(in ctx: CGContext) {
         super.draw(in: ctx)
-        print(ctx.ctm)
 
         let bounds = self.bounds.size
         let rect = ctx.convertToUserSpace(CGRect(origin: CGPoint.zero, size: self.tileSize))
@@ -89,7 +94,7 @@ class MandelLayer: CATiledLayer {
         let tilescale = scale / density
         let tilesize = self.tileSize / density
 
-        let maxiter = 64 * Int(log(tilescale) / log(2))
+        let maxiter = 48 * Int(log2(tilescale))
 
         let result = mandelbrot(min: a, max: b, size: tilesize, maxiter: maxiter)
         let array = result.map { palette[Int(Double(palette.count-1) * $0)] }
