@@ -1,17 +1,11 @@
-//
-//  Complex.swift
-//  Mandelbrot
-//
-//  Created by Manuel Broncano on 9/2/17.
-//  Copyright © 2017 Manuel Broncano. All rights reserved.
-//
+//: Playground - noun: a place where people can play
 
 import simd
 
 public typealias Complex = double2
 
 extension Complex {
-    
+
     //! sqrt(x * x + y * y)
     var radius: Double { return length(self) }
 
@@ -19,11 +13,19 @@ extension Complex {
     var radiusSquare: Double { return length_squared(self) }
 
     //! self * self
-    // (a+bi)(c+di) = ac+ad*i+bc*i+bd*i^2 [i^2=-1,a=c,b=d], a^2-b^2+2ab*i
-    var square: Complex { return Complex(x * x - y * y, 2 * x * y) }
+    var square: Complex { return Complex(x * x - y * y, x * y + y * x) }
 
     //! self * (max - min) + min
     public func lerp(min: Complex, max: Complex) -> Complex {
         return mix(min, max, t: self)
     }
 }
+
+var z = Complex()
+let c = Complex(-2.5, 0)
+let max = 100
+var zs = AnyIterator<Complex>{
+    z = z.square + c
+    return z
+    }.prefix(max).enumerated()
+print(zs.first { $0.1.radiusSquare >= 256 } ?? (offset: max, element: 1.0))

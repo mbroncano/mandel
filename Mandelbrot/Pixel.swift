@@ -8,21 +8,26 @@
 
 import Foundation
 import CoreGraphics
-
-func clamp(_ c: Double) -> UInt8 {
-    return UInt8(min(Double(UInt8.max), max(c, Double(UInt8.min))))
-}
+import simd
 
 struct Pixel {
     let a, r, g, b: UInt8
 
-    static var black = Pixel([0, 0, 0])
+    static var black = Pixel(double3())
+
+    init() {
+        self = Pixel(double3())
+    }
+
+    init(_ c: double3) {
+        a = 255
+        r = UInt8(c.x)
+        g = UInt8(c.y)
+        b = UInt8(c.z)
+    }
 
     init(_ c: [Double]) {
-         a = 255
-         r = clamp(c[0])
-         g = clamp(c[1])
-         b = clamp(c[2])
+        self.init(clamp(double3(c), min: Double(UInt8.min), max: Double(UInt8.max)))
     }
 }
 

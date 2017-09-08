@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,6 +25,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="FXn-fE-Qee" secondAttribute="bottom" id="0ga-4f-vdR"/>
                                     <constraint firstItem="FXn-fE-Qee" firstAttribute="centerX" secondItem="CCJ-r1-0jy" secondAttribute="centerX" id="8cx-wH-JKw"/>
@@ -35,6 +36,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jPo-X8-sBc"/>
+                                    <outletCollection property="gestureRecognizers" destination="p1B-QM-14f" appends="YES" id="vN9-rM-is4"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -48,12 +50,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="gestureRecognizer" destination="p1B-QM-14f" id="Cwz-Fd-qFA"/>
                         <outlet property="scrollView" destination="CCJ-r1-0jy" id="uA9-65-fmP"/>
                         <outlet property="tileView" destination="FXn-fE-Qee" id="oEW-Rq-CsE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="MVk-gf-rs0"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="p1B-QM-14f">
+                    <connections>
+                        <action selector="handleTapGestureWithRecognizer:" destination="BYZ-38-t0r" id="Vpu-uM-s3h"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="139.453125" y="169.53125"/>
         </scene>
