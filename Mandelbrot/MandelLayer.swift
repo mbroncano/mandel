@@ -46,7 +46,21 @@ class MandelLayer: CATiledLayer {
         let i = Double(rect.size.width) / Double(bounds.width)
         let j = Double(rect.size.height) / Double(bounds.height)
 
-        // convert coordinates from rect -> mandel space with matrix
+        // convert aspect ration to bounds aspect ratio
+        let inc: Complex
+        let rb = Double(bounds.width) / Double(bounds.height)
+        let sc = self.max - self.min
+        let rc = sc.x / sc.y
+        if rb < rc {
+            inc = Complex(0, ((1.0 / rb) * sc.x - sc.y) / 2.0)
+        } else {
+            inc = Complex((rb * sc.y - sc.x) / 2.0, 0)
+        }
+        let min = self.min - inc
+        let max = self.max + inc
+//        let sm = max - min
+//        let rm = sm.x / sm.y
+//        print(rb, rc, rm, inc, min, max)
 
         let a = mix(min, max, t: Complex(u, v))
         let b = mix(min, max, t: Complex(u, v) + Complex(i, j))
@@ -68,11 +82,11 @@ class MandelLayer: CATiledLayer {
         let width = Int(size.width)
         let height = Int(size.height)
         let count = width * height
-        let escape = 256.0
+        let escape = 256.0 // adjusted for smoothness
         var result = [Double](repeating: 1.0, count: count)
 
         // it doesn't make a difference when running in the device
-                DispatchQueue.concurrentPerform(iterations: count) { i in
+        DispatchQueue.concurrentPerform(iterations: count) { i in
 //        for i in 0..<count {
             let (x, y) = (i % width, height - (i / width)) // draw it flipped
             let (u, v) = (Double(x) / Double(width), Double(y) / Double(height))

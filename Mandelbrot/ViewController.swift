@@ -24,6 +24,7 @@ class TileView: UIView {
         layer.levelsOfDetail = maxScale
         layer.levelsOfDetailBias = maxScale
     }
+
 }
 
 class ViewController: UIViewController, UIScrollViewDelegate {
@@ -36,6 +37,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         scrollView.maximumZoomScale = CGFloat(self.tileView.maxScale)
     }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return .landscape }
 
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.tileView

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,25 +14,25 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mandelbrot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="32768" translatesAutoresizingMaskIntoConstraints="NO" id="CCJ-r1-0jy">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXn-fE-Qee" customClass="TileView" customModule="Mandelbrot" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="FXn-fE-Qee" secondAttribute="bottom" id="0ga-4f-vdR"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerX" secondItem="CCJ-r1-0jy" secondAttribute="centerX" id="8cx-wH-JKw"/>
-                                    <constraint firstAttribute="trailing" secondItem="FXn-fE-Qee" secondAttribute="trailing" id="Gc9-m0-9gV"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerY" secondItem="CCJ-r1-0jy" secondAttribute="centerY" id="OOZ-94-5cl"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="top" secondItem="CCJ-r1-0jy" secondAttribute="top" id="oVz-28-EBC"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="leading" secondItem="CCJ-r1-0jy" secondAttribute="leading" id="zC7-4a-PYK"/>
+                                    <constraint firstAttribute="trailing" secondItem="FXn-fE-Qee" secondAttribute="trailing" id="09u-EO-iYn"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerY" secondItem="CCJ-r1-0jy" secondAttribute="centerY" id="2tr-WZ-0kR"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="leading" secondItem="CCJ-r1-0jy" secondAttribute="leading" id="9G3-sr-jiP"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerX" secondItem="CCJ-r1-0jy" secondAttribute="centerX" id="fim-1Q-HTy"/>
+                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="top" secondItem="CCJ-r1-0jy" secondAttribute="top" id="ke5-Wr-yf7"/>
+                                    <constraint firstAttribute="bottom" secondItem="FXn-fE-Qee" secondAttribute="bottom" id="t6m-pQ-gFR"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jPo-X8-sBc"/>
@@ -42,10 +42,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4hO-VP-hvA"/>
-                            <constraint firstAttribute="trailing" secondItem="CCJ-r1-0jy" secondAttribute="trailing" id="H30-5u-GVW"/>
-                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wd1-6V-lSJ"/>
-                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="up1-jE-qlm"/>
+                            <constraint firstAttribute="trailing" secondItem="CCJ-r1-0jy" secondAttribute="trailing" id="DGq-hw-Orq"/>
+                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DxV-DN-KRI"/>
+                            <constraint firstItem="CCJ-r1-0jy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F6h-Dx-ijp"/>
+                            <constraint firstAttribute="bottom" secondItem="CCJ-r1-0jy" secondAttribute="bottom" id="LIL-8E-1In"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -62,7 +62,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="139.453125" y="169.53125"/>
+            <point key="canvasLocation" x="138.40000000000001" y="169.21182266009853"/>
         </scene>
     </scenes>
 </document>

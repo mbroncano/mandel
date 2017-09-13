@@ -15,7 +15,6 @@
 		C7E6DA9E1F5B46A800A52433 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6DA9D1F5B46A800A52433 /* ViewController.swift */; };
 		C7E6DAA11F5B46A800A52433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E6DA9F1F5B46A800A52433 /* Main.storyboard */; };
 		C7E6DAA31F5B46A800A52433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E6DAA21F5B46A800A52433 /* Assets.xcassets */; };
-		C7E6DAA61F5B46A800A52433 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E6DAA41F5B46A800A52433 /* LaunchScreen.storyboard */; };
 		C7E6DAB11F5B46A800A52433 /* MandelbrotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6DAB01F5B46A800A52433 /* MandelbrotTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +38,6 @@
 		C7E6DA9D1F5B46A800A52433 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7E6DAA01F5B46A800A52433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7E6DAA21F5B46A800A52433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C7E6DAA51F5B46A800A52433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7E6DAA71F5B46A800A52433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7E6DAAC1F5B46A800A52433 /* MandelbrotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandelbrotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E6DAB01F5B46A800A52433 /* MandelbrotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandelbrotTests.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				C7217AD91F5C94910001ADF8 /* Interpolation.swift */,
 				C7E6DA9F1F5B46A800A52433 /* Main.storyboard */,
 				C7E6DAA21F5B46A800A52433 /* Assets.xcassets */,
-				C7E6DAA41F5B46A800A52433 /* LaunchScreen.storyboard */,
 				C7E6DAA71F5B46A800A52433 /* Info.plist */,
 			);
 			path = Mandelbrot;
@@ -189,7 +186,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7E6DAA61F5B46A800A52433 /* LaunchScreen.storyboard in Resources */,
 				C7E6DAA31F5B46A800A52433 /* Assets.xcassets in Resources */,
 				C7E6DAA11F5B46A800A52433 /* Main.storyboard in Resources */,
 			);
@@ -243,14 +239,6 @@
 				C7E6DAA01F5B46A800A52433 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C7E6DAA41F5B46A800A52433 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7E6DAA51F5B46A800A52433 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -367,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H3592CZ3N7;
 				INFOPLIST_FILE = Mandelbrot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -381,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H3592CZ3N7;
 				INFOPLIST_FILE = Mandelbrot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
