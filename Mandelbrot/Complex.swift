@@ -7,11 +7,20 @@
 //
 
 import simd
+import CoreGraphics
 
 public typealias Complex = double2
 
 extension Complex {
-    
+
+    init(_ size: CGSize) {
+        self.init(x: Double(size.width), y: Double(size.height))
+    }
+
+    init(_ point: CGPoint) {
+        self.init(x: Double(point.x), y: Double(point.y))
+    }
+
     //! sqrt(x * x + y * y)
     var radius: Double { return length(self) }
 
