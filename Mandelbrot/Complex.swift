@@ -21,6 +21,10 @@ extension Complex {
         self.init(x: Double(point.x), y: Double(point.y))
     }
 
+    init(_ x: Int, _ y: Int) {
+        self.init(x: Double(x), y: Double(y))
+    }
+
     //! sqrt(x * x + y * y)
     var radius: Double { return length(self) }
 

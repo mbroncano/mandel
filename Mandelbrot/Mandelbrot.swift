@@ -39,8 +39,8 @@ func mandelbrot(min a: Complex, max b: Complex, size: CGSize, maxiter: Int) -> C
     DispatchQueue.concurrentPerform(iterations: count) { i in
         //        for i in 0..<count {
         let (x, y) = (i % width, height - (i / width)) // draw it flipped
-        let (u, v) = (Double(x) / Double(width), Double(y) / Double(height))
-        let c = Complex(u, v).lerp(min: a, max: b)
+        let uv = Complex(x, y) * recip(Complex(size))
+        let c = uv.lerp(min: a, max: b)
 
         var z = Complex()
         for iter in 0..<maxiter {
@@ -53,6 +53,5 @@ func mandelbrot(min a: Complex, max b: Complex, size: CGSize, maxiter: Int) -> C
         }
     }
 
-    let array = result.map { palette[Int(Double(palette.count-1) * $0)] }
-    return array.cgImage(size: size)
+    return result.map { palette[Int(Double(palette.count-1) * $0)] }.cgImage(size: size)
 }

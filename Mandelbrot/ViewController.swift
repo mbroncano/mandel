@@ -28,36 +28,22 @@ class TileView: UIView {
         layer.delegate = self
     }
 
-    func newLayer() -> CALayer {
-        let layer = CATiledLayer()
-        layer.tileSize = CGSize(width: sideLength, height: sideLength)
-        layer.levelsOfDetail = 2 << maxscale
-        layer.levelsOfDetailBias = 2 << maxscale
-        layer.delegate = self
-
-        return layer
-    }
-
     func reset(min: Complex, max: Complex) {
-        let layer = self.layer as! CATiledLayer
         self.min = min
         self.max = max
 
-        layer.contents = nil;//image?.cgImage;
+        // reset the layer
+        self.layer.contents = nil;
         self.setNeedsDisplay()
     }
 
-    func rectToComplex(_ rect: CGRect) -> (Complex, Complex) {
-        let bounds = layer.bounds // to avoid warning
-        let rect = layer.convert(rect, to: layer)
+    func rectToComplex(_ rect: CGRect, _ bounds: CGSize) -> (Complex, Complex) {
 
-        let u = Double(rect.origin.x) / Double(bounds.width)
-        let v = Double(rect.origin.y) / Double(bounds.height)
-        let i = Double(rect.size.width) / Double(bounds.width)
-        let j = Double(rect.size.height) / Double(bounds.height)
+        let orig = Complex(rect.origin) / Complex(bounds)
+        let size = Complex(rect.size) / Complex(bounds)
 
-        let a = mix(min, max, t: Complex(u, v))
-        let b = mix(min, max, t: Complex(u, v) + Complex(i, j))
+        let a = mix(min, max, t: orig)
+        let b = mix(min, max, t: orig + size)
 
         return (a, b)
     }
@@ -67,12 +53,11 @@ class TileView: UIView {
 
         let rect = ctx.convertToUserSpace(CGRect(origin: CGPoint.zero, size: layer.tileSize))
 
-        let (a, b) = rectToComplex(rect)
+        let (a, b) = rectToComplex(rect, layer.bounds.size)
 
         let tilesize = CGSize(width: layer.tileSize.width / layer.contentsScale, height: layer.tileSize.height / layer.contentsScale)
 
         // back of the envelope max iter computation
-//        let zoom = ctx.ctm.a / layer.contentsScale
         let d = recip(length(b-a))
         let maxiter = 48 * Int(abs(log2(d))+1)
 
@@ -105,7 +90,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
     func updateLabel() {
         let rect = scrollView.convert(scrollView.bounds, to: tileView)
-        let (a, b) = tileView.rectToComplex(rect)
+        let (a, b) = tileView.rectToComplex(rect, tileView.bounds.size)
         let s = "\(a), \(b),\(scrollView.zoomScale), \(scrollView.contentOffset), \(tileView.frame)"
         label.text = s
         print(s)
@@ -144,10 +129,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
         // reset scroll view
         scrollView.zoomScale = CGFloat(1 << scale)
-        scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width/4, y: scrollView.contentSize.height/4 )
+        scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width/4, y: scrollView.contentSize.height/4)
     }
 
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+
+        // reset zoom to the middle scale
         let scale = log2(scrollView.zoomScale)
         if scale <= 2 || scale >= 14 {
             resetZoom(scale: 8)
