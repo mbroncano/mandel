@@ -19,21 +19,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="32768" translatesAutoresizingMaskIntoConstraints="NO" id="CCJ-r1-0jy">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXn-fE-Qee" customClass="TileView" customModule="Mandelbrot" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="FXn-fE-Qee" secondAttribute="trailing" id="09u-EO-iYn"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerY" secondItem="CCJ-r1-0jy" secondAttribute="centerY" id="2tr-WZ-0kR"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="leading" secondItem="CCJ-r1-0jy" secondAttribute="leading" id="9G3-sr-jiP"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="centerX" secondItem="CCJ-r1-0jy" secondAttribute="centerX" id="fim-1Q-HTy"/>
-                                    <constraint firstItem="FXn-fE-Qee" firstAttribute="top" secondItem="CCJ-r1-0jy" secondAttribute="top" id="ke5-Wr-yf7"/>
-                                    <constraint firstAttribute="bottom" secondItem="FXn-fE-Qee" secondAttribute="bottom" id="t6m-pQ-gFR"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jPo-X8-sBc"/>
                                     <outletCollection property="gestureRecognizers" destination="p1B-QM-14f" appends="YES" id="vN9-rM-is4"/>
@@ -66,7 +52,6 @@
                         <outlet property="gestureRecognizer" destination="p1B-QM-14f" id="Cwz-Fd-qFA"/>
                         <outlet property="label" destination="ejE-Gr-RTN" id="geY-DN-kIu"/>
                         <outlet property="scrollView" destination="CCJ-r1-0jy" id="uA9-65-fmP"/>
-                        <outlet property="tileView" destination="FXn-fE-Qee" id="oEW-Rq-CsE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -19,16 +19,21 @@ class TileView: UIView {
 
     override class var layerClass: AnyClass { return CATiledLayer.self }
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    func reset(min: Complex, max: Complex) {
         let layer = self.layer as! CATiledLayer
         layer.tileSize = CGSize(width: sideLength, height: sideLength)
         layer.levelsOfDetail = 2 << maxscale
         layer.levelsOfDetailBias = 2 << maxscale
         layer.delegate = self
-    }
 
-    func reset(min: Complex, max: Complex) {
         self.min = min
         self.max = max
 
@@ -51,10 +56,11 @@ class TileView: UIView {
     override func draw(_ layer: CALayer, in ctx: CGContext) {
         let layer = layer as! CATiledLayer
 
+        // min and max to compute
         let rect = ctx.convertToUserSpace(CGRect(origin: CGPoint.zero, size: layer.tileSize))
-
         let (a, b) = rectToComplex(rect, layer.bounds.size)
 
+        // tile size in pixels (as opposed to points)
         let tilesize = CGSize(width: layer.tileSize.width / layer.contentsScale, height: layer.tileSize.height / layer.contentsScale)
 
         // back of the envelope max iter computation
@@ -71,14 +77,23 @@ class TileView: UIView {
 class ViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var tileView: TileView!
+//    @IBOutlet weak var tileView: TileView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var gestureRecognizer: UITapGestureRecognizer!
+    var tileView: TileView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.minimumZoomScale = 1
-        scrollView.maximumZoomScale = CGFloat(2 << self.tileView.maxscale)
+
+        tileView = TileView()
+        tileView.translatesAutoresizingMaskIntoConstraints = false
+        tileView.frame = scrollView.frame
+        scrollView.addSubview(tileView)
+        tileView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        tileView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        tileView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+        tileView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+
         resetZoom()
     }
 

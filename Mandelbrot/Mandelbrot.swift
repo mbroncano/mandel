@@ -36,8 +36,8 @@ func mandelbrot(min a: Complex, max b: Complex, size: CGSize, maxiter: Int) -> C
     var result = [Double](repeating: 1.0, count: count)
 
     // it doesn't make a difference when running in the device
-    DispatchQueue.concurrentPerform(iterations: count) { i in
-        //        for i in 0..<count {
+//    DispatchQueue.concurrentPerform(iterations: count) { i in
+                for i in 0..<count {
         let (x, y) = (i % width, height - (i / width)) // draw it flipped
         let uv = Complex(x, y) * recip(Complex(size))
         let c = uv.lerp(min: a, max: b)
