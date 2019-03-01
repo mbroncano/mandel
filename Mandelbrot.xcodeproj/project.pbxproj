@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C7217AD61F5B4CED0001ADF8 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD51F5B4CED0001ADF8 /* Complex.swift */; };
-		C7217AD81F5BAC010001ADF8 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD71F5BAC010001ADF8 /* Pixel.swift */; };
-		C7217ADA1F5C94910001ADF8 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD91F5C94910001ADF8 /* Interpolation.swift */; };
+		C73FEF7B222990FC0016EFBE /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7217AD91F5C94910001ADF8 /* Interpolation.swift */; };
 		C7594E8D1F68ADE700C2FB16 /* Mandelbrot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7594E8C1F68ADE700C2FB16 /* Mandelbrot.swift */; };
 		C7E6DA9C1F5B46A800A52433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6DA9B1F5B46A800A52433 /* AppDelegate.swift */; };
 		C7E6DA9E1F5B46A800A52433 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6DA9D1F5B46A800A52433 /* ViewController.swift */; };
@@ -29,8 +27,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C7217AD51F5B4CED0001ADF8 /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
-		C7217AD71F5BAC010001ADF8 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
 		C7217AD91F5C94910001ADF8 /* Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
 		C7594E8C1F68ADE700C2FB16 /* Mandelbrot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mandelbrot.swift; sourceTree = "<group>"; };
 		C7E6DA981F5B46A800A52433 /* Mandelbrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mandelbrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,8 +82,6 @@
 				C7E6DA9B1F5B46A800A52433 /* AppDelegate.swift */,
 				C7E6DA9D1F5B46A800A52433 /* ViewController.swift */,
 				C7594E8C1F68ADE700C2FB16 /* Mandelbrot.swift */,
-				C7217AD51F5B4CED0001ADF8 /* Complex.swift */,
-				C7217AD71F5BAC010001ADF8 /* Pixel.swift */,
 				C7217AD91F5C94910001ADF8 /* Interpolation.swift */,
 				C7E6DA9F1F5B46A800A52433 /* Main.storyboard */,
 				C7E6DAA21F5B46A800A52433 /* Assets.xcassets */,
@@ -150,14 +144,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Manuel Broncano";
 				TargetAttributes = {
 					C7E6DA971F5B46A800A52433 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 					};
 					C7E6DAAB1F5B46A800A52433 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						TestTargetID = C7E6DA971F5B46A800A52433;
 					};
 				};
@@ -206,10 +202,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7594E8D1F68ADE700C2FB16 /* Mandelbrot.swift in Sources */,
-				C7217ADA1F5C94910001ADF8 /* Interpolation.swift in Sources */,
-				C7217AD81F5BAC010001ADF8 /* Pixel.swift in Sources */,
+				C73FEF7B222990FC0016EFBE /* Interpolation.swift in Sources */,
 				C7E6DA9E1F5B46A800A52433 /* ViewController.swift in Sources */,
-				C7217AD61F5B4CED0001ADF8 /* Complex.swift in Sources */,
 				C7E6DA9C1F5B46A800A52433 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +252,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -265,6 +260,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -315,6 +311,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -322,6 +319,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -361,7 +359,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuelbroncano.Mandelbrot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -376,7 +374,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuelbroncano.Mandelbrot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -391,7 +389,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuelbroncano.MandelbrotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mandelbrot.app/Mandelbrot";
 			};
@@ -407,7 +405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuelbroncano.MandelbrotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mandelbrot.app/Mandelbrot";
 			};

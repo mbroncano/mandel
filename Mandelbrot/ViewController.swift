@@ -10,36 +10,36 @@ import UIKit
 import CoreGraphics
 import simd
 
-class TileView: UIView {
-    let sideLength = 256
-    let maxscale = 16 // this is 2 << 16
-    var min = Complex(-2.5, -1.5)
-    var max = Complex(1.5, 1.5)
+final class TileView: UIView {
     var zoom = 1.0
+    var area: (min: Complex, max: Complex) = (Complex(-2.5, -1.5), Complex(1.5, 1.5)) {
+        didSet {
+            self.layer.contents = nil//image?.cgImage
+            self.setNeedsDisplay()
+        }
+    }
 
-    override class var layerClass: AnyClass { return CATiledLayer.self }
+    override class var layerClass: AnyClass {
+        return CATiledLayer.self
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initLayer()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initLayer()
     }
 
-    func reset(min: Complex, max: Complex) {
-        let layer = self.layer as! CATiledLayer
-        layer.tileSize = CGSize(width: sideLength, height: sideLength)
-        layer.levelsOfDetail = 2 << maxscale
-        layer.levelsOfDetailBias = 2 << maxscale
+    private func initLayer() {
+        guard let layer = self.layer as? CATiledLayer else { return }
+
+        layer.tileSize = CGSize(width: 256, height: 256)
+        layer.levelsOfDetail = 2 << 16
+        layer.levelsOfDetailBias = 2 << 16
         layer.delegate = self
-
-        self.min = min
-        self.max = max
-
-        // reset the layer
-        self.layer.contents = nil;
-        self.setNeedsDisplay()
     }
 
     func rectToComplex(_ rect: CGRect, _ bounds: CGSize) -> (Complex, Complex) {
@@ -47,14 +47,14 @@ class TileView: UIView {
         let orig = Complex(rect.origin) / Complex(bounds)
         let size = Complex(rect.size) / Complex(bounds)
 
-        let a = mix(min, max, t: orig)
-        let b = mix(min, max, t: orig + size)
+        let a = mix(area.min, area.max, t: orig)
+        let b = mix(area.min, area.max, t: orig + size)
 
         return (a, b)
     }
 
     override func draw(_ layer: CALayer, in ctx: CGContext) {
-        let layer = layer as! CATiledLayer
+        guard let layer = layer as? CATiledLayer else { return }
 
         // min and max to compute
         let rect = ctx.convertToUserSpace(CGRect(origin: CGPoint.zero, size: layer.tileSize))
@@ -77,7 +77,6 @@ class TileView: UIView {
 class ViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var label: UILabel!
-//    @IBOutlet weak var tileView: TileView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var gestureRecognizer: UITapGestureRecognizer!
     var tileView: TileView!
@@ -134,13 +133,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let destin = orig - size / 4  + size
 
         // scale the rect to the view current space
-        let min = tileView.min
-        let max = tileView.max
+        let min = tileView.area.min
+        let max = tileView.area.max
         let a = mix(min, max, t: origin)
         let b = mix(min, max, t: destin)
 
         // set new zoom
-        tileView.reset(min: a, max: b)
+        tileView.area = (min: a, max: b)
 
         // reset scroll view
         scrollView.zoomScale = CGFloat(1 << scale)
